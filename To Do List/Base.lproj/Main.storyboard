@@ -140,7 +140,11 @@
                                 <action selector="cancelBottonPressed:" destination="bnp-Td-3SS" id="HFg-KI-uXj"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="VPI-Dp-pLw"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="VPI-Dp-pLw">
+                            <connections>
+                                <segue destination="UzB-HT-KN8" kind="unwind" unwindAction="unwindFromDetailWithSegue:" id="Evj-LT-5FZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="cancelButtonPressed" destination="Upd-dQ-l8U" id="dhH-kX-zBY"/>
@@ -151,6 +155,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y4g-3o-dc3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="UzB-HT-KN8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2818.840579710145" y="81.696428571428569"/>
         </scene>
@@ -175,6 +180,7 @@
         <!--Navigation Controller-->
         <scene sceneID="wBd-Sy-pR8">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q56-Cs-bve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WBl-Aa-PPr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="9e9-Di-RNo"/>
@@ -187,7 +193,6 @@
                         <segue destination="bnp-Td-3SS" kind="relationship" relationship="rootViewController" id="vZp-RQ-BFn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q56-Cs-bve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1999" y="-410"/>
         </scene>
