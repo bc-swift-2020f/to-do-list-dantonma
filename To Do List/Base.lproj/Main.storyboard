@@ -83,7 +83,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="878-5l-79a">
-                                                    <rect key="frame" x="19" y="5" width="375" height="34"/>
+                                                    <rect key="frame" x="19" y="5" width="374" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -157,7 +157,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancelButtonPressed" destination="Upd-dQ-l8U" id="dhH-kX-zBY"/>
                         <outlet property="datePicker" destination="kdQ-V6-b2e" id="kOT-c0-sEH"/>
                         <outlet property="nameField" destination="878-5l-79a" id="uWq-Dv-bWN"/>
                         <outlet property="noteView" destination="5Fx-LS-xAE" id="Ptg-dD-Xhl"/>

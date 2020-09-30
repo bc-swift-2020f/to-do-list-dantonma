@@ -39,7 +39,7 @@ class ToDoListViewController: UIViewController {
         } catch{
             print("Error")
         }
-       
+        
     }
     
     func saveData() {
@@ -54,17 +54,6 @@ class ToDoListViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowDetail" {
-            let destination = segue.destination as! ToDoDetailTableViewController
-            let selectedIndexPath = tableView.indexPathForSelectedRow!
-            destination.toDoItem = toDoItems[selectedIndexPath.row]
-        } else {
-            if let selectedIndexPath = tableView.indexPathForSelectedRow{
-                tableView.deselectRow(at: selectedIndexPath, animated: true)
-            }
-    }
-    
     @IBAction func unwindFromDetail(segue: UIStoryboardSegue){
         let source = segue.source as! ToDoDetailTableViewController
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
@@ -75,26 +64,37 @@ class ToDoListViewController: UIViewController {
             toDoItems.append(source.toDoItem)
             tableView.insertRows(at: [newIndexPath], with: .bottom)
             tableView.scrollToRow(at: newIndexPath, at: .bottom, animated: true)
-            }
+        }
         saveData()
-        }
     }
     
-    @IBAction func editButtonPressed(_ sender: Any) {
-        if tableView.isEditing{
-            tableView.setEditing(false, animated: true)
-            (sender as AnyObject).title = "Edit"
-            addBarButton.isEnabled = true
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetail" {
+            let destination = segue.destination as! ToDoDetailTableViewController
+            let selectedIndexPath = tableView.indexPathForSelectedRow!
+            destination.toDoItem = toDoItems[selectedIndexPath.row]
         } else {
-            tableView.setEditing(true, animated: true)
-            (sender as AnyObject).title = "Done"
-            addBarButton.isEnabled = false
+            if let selectedIndexPath = tableView.indexPathForSelectedRow{
+                tableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
         }
     }
-    
+        
+        @IBAction func editButtonPressed(_ sender: UIBarButtonItem) {
+            if tableView.isEditing {
+                tableView.setEditing(false, animated: true)
+                sender.title = "Edit"
+                addBarButton.isEnabled = true
+            } else {
+                tableView.setEditing(true, animated: true)
+                sender.title = "Done"
+                addBarButton.isEnabled = false
+            }
+        }
 }
 
-extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource{
+extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return toDoItems.count
     }
